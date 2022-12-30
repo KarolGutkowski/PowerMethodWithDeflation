@@ -1,0 +1,3 @@
+TEST2
+Test macierzy łatwych dla wyników przybliżonych z mniejszą precyzją.
+Test ma na celu sprawdzenie poprawność działania mechanizmu tolerancji błędu

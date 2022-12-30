@@ -1,0 +1,4 @@
+TEST1
+Sprawdzenie poprawności rozwiązania dla prostych macierzy o całkowitych
+wartościach własnych bez powtórzeń.
+Tolerancja dla wszystkich błędów została ustawiona na 1e-9

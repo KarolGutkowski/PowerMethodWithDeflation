@@ -1,0 +1,4 @@
+TEST3
+Test dla macierzy z wielokrotnymi wartosciami wlasnymi.
+Oczekiwany rezultat to zwrocenie wartosci wlasnych do momentu napotkania pierwszej w kolejności
+(malejącej co do modułu) wartości własnej której moduł jest równy z kolejną.
