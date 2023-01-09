@@ -3,7 +3,7 @@ type("test1.txt");
 
 
 A = [1 0 0; 0 2 0; 0 3 0];
-tol = 1e-9;
+tol = 1e-4;
 
 eigenvalues = P2Z35_KGU_PotNormDef(A,tol);
 fprintf("Macierz 1. :\n");

@@ -51,6 +51,7 @@ while (~isnan(curr_vector(1)) && i <= n)
     A = A(2:end,2:end);
     i=i+1;
 end
+fprintf("Iter=%d\n",i);
 
 end
 
