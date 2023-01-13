@@ -1,0 +1,7 @@
+TEST 3
+W tym tescie sprawdzam poprawnosc implementacji metody n-1 obrotow Givensa.
+Spodziewany wynik to najwieksza wartosc wlasna na wspolrzednej (1,1),
+oraz wyzerowana reszta pierwszej kolumny.
+
+
+
