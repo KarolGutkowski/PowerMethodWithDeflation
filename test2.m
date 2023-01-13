@@ -1,15 +1,28 @@
 function test2()
 type("test2.txt");
 
-tol = 1e-5;
-A = [13.1111 3 6; 0 3.3333 7 ; 0 0 6.5555];
+tol = 1e-9;
+
+v1 = [1;2;3];
+v2 = [1;0;0];
+v3 = [5;6;2];
+V = [v1 v2 v3];
+D = zeros(3);
+lambda1 = 20;
+lambda2 = -7;
+lambda3 = 7;
+D(1,1) = lambda3;
+D(2,2) = lambda2;
+D(3,3) = lambda1;
+A = eigenvectorsToMatrixGen(V,D);
 
 eigenvalues = P2Z35_KGU_PotNormDef(A,tol);
-real_eigens = sort(eig(A),'descend');
-errors = abs(eigenvalues -real_eigens);
+real_eigens = [lambda1;lambda2;lambda3];
+
 fprintf("Macierz 2. :\n");
 disp(A);
 fprintf("Wartości własne macierzy:\n");
+disp(real_eigens);
 %% ZAMIEŃ NA WLASNE OBLICZENIE WARTOSCI WLASNYCH
 %disp(sort(eig(A),'descend'));
 %fprintf("Wynik metody:\n");
@@ -18,13 +31,10 @@ fprintf("Wartości własne macierzy:\n");
 %fprintf("Tolerancja = %d\n",tol);
 %fprintf("Błędy:\n");
 %disp(errors);
-fprintf("Tolerancja = %d\n",tol);
-fprintf("Wartości własne    |     Wynik metody      |          Bledy\n");
+fprintf("Wynik metody\n");
+disp(eigenvalues);
+pause();
 %% ZAMIEŃ NA WLASNE OBLICZENIE WARTOSCI WLASNYCH
-real_eigens = sort(eig(A),'descend');
-for i =1:3
-    fprintf("  %d     |     %d      |       %d\n", real_eigens(i), eigenvalues(i), errors(i));
-end
 
 
 
@@ -32,15 +42,17 @@ fprintf("\n--------------------------------------------------------------\n");
 tol = 1e-3;
 A = [13.111 0 0 0; 0 3.3333 0 0; 0 0 6.5555 0; 0 0 0 341.231312];
 eigenvalues = P2Z35_KGU_PotNormDef(A,tol);
+real_eigens = [341.231312;13.111;6.5555;3.3333];
 fprintf("Macierz 2.:\n");
 disp(A);
-errors = abs(eigenvalues -sort(eig(A),'descend'));
-fprintf("Tolerancja = %d\n",tol);
-fprintf("Wartości własne    |     Wynik metody      |          Bledy\n");
+fprintf("Wartości własne    |     Wynik metody\n");
 %% ZAMIEŃ NA WLASNE OBLICZENIE WARTOSCI WLASNYCH
-real_eigens = sort(eig(A),'descend');
 for i =1:4
-    fprintf("  %d     |     %d      |       %d\n", real_eigens(i), eigenvalues(i), errors(i));
+    if(i<=length(eigenvalues))
+        fprintf("  %d     |     %d \n", real_eigens(i), eigenvalues(i));
+    else
+        fprintf("  %d\n", real_eigens(i));
+    end
 end
 %disp([sort(eig(A),'descend') eigenvalues]);
 
