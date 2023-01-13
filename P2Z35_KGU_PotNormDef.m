@@ -41,17 +41,22 @@ L = zeros(n,1);
 curr_vector = 0;
 
 i = 1;
+tic;
 while (~isnan(curr_vector(1)) && i <= n)
     [curr_vector] = PowerMethod(A,tol);
     A = DeflateGivens(A,curr_vector);
     curr_lambda = A(1,1);
     if(~isnan(curr_vector(1)))
         L(i) = curr_lambda;
+    else
+        break;
     end
     A = A(2:end,2:end);
     i=i+1;
 end
-fprintf("Iter=%d\n",i);
+toc;
+L = L(1:i-1);
+%fprintf("Iter=%d\n",i);
 
 end
 
